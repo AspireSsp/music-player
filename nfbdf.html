@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    #playlist {
+      list-style: none;
+      padding: 0;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="fileInput" accept=".mp3" />
+  <ul id="playlist"></ul>
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+    function handleFileSelect(event) {
+      const playlist = document.getElementById('playlist');
+      const audioPlayer = document.getElementById('audioPlayer');
+
+      // Clear existing playlist
+      playlist.innerHTML = '';
+
+      // Iterate through selected files
+      for (const file of event.target.files) {
+        const listItem = document.createElement('li');
+        const audio = document.createElement('audio');
+
+        // Set audio source to the selected file
+        audio.src = URL.createObjectURL(file);
+        
+        // Display file name in the playlist
+        listItem.textContent = file.name;
+
+        // Add click event to play/pause the audio
+        listItem.addEventListener('click', function () {
+          if (audio.paused) {
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        });
+
+        // Append the new audio element to the playlist
+        playlist.appendChild(listItem);
+        document.body.appendChild(audio);
+      }
+
+      // Update audio player source and reset it
+      audioPlayer.src = playlist.firstChild ? playlist.firstChild.firstChild.src : '';
+      audioPlayer.load();
+    }
+  </script>
+</body>
+</html>
