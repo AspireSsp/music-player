@@ -50,8 +50,8 @@ const TrackList = () => {
                     <div style={{width:'35px',display:'flex',justifyContent:'center', margin:'0px', paddingLeft:'4px'}} >
                       <img src='https://cdn.pixabay.com/photo/2015/12/09/22/09/music-1085655_640.png' style={{width:'100%'}} />
                     </div>
-                    <div style={{display:'flex',height:'50px', flexDirection:'column',justifyContent:'center', width:'80%', marginLeft:'5px',overflow: "hidden"}}>
-                        <h4 style={{margin:'0px',fontSize:'1rem'}}>{song?.name.length>28 ? song.name.substring(0, 28)+".." : song?.name}</h4>
+                    <div style={{display:'flex',height:'50px', flexDirection:'column',justifyContent:'center', width:'80%', marginLeft:'5px',overflowX: "clip"}}>
+                        <h4 style={{margin:'0px',fontSize:'1rem',}}>{song?.name.length>28 ? song.name.substring(0, 28)+".." : song?.name}</h4>
                         <p style={{ margin:'0px'}}>{song.artist}</p>
                     </div>
                     <div style={{display:'flex', alignItems:'center', height:'50px', paddingRight:'5px'}}>

@@ -18,7 +18,7 @@ const VolumeRange = () => {
     return (
         <div>
             <div style={{display:'flex', alignItems:'center',justifyContent:'center',  marginTop:'40px',width:'100%'}}>
-                <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', width:'450px'}} >
+                <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', width:'80%'}} >
                     <IoMdVolumeLow style={{fontSize:'20px', padding:'2px', cursor:'pointer'}} />
                     <input
                         style={{ width: "100%", height: "3px", cursor:'pointer' }}

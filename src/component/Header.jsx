@@ -9,7 +9,7 @@ const Header = () => {
             HiTBiTs
           </h2>
         </div>
-        <div>
+        <div className='search'>
             Search Song
         </div>
         <div>

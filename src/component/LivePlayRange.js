@@ -106,16 +106,20 @@ const LivePlayRange = () => {
     return (
         <div>
             <div style={{marginTop:'20px', display:'flex',flexDirection:'column',alignItems:'center', justifyContent:'center'}}>
-                <div style={{width:"550px"}}>
-                    <div style={{display:'flex', width:'100%', justifyContent: 'space-between', paddingLeft:'5px', paddingRight:'5px' }}>
-                    <p>{formateTime(currentTime)}</p>
-                    <p>{currentSong?.duration}</p>
+                <div style={{width:"100%"}}>
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <div style={{display:'flex', width:'90%', justifyContent: 'space-between', paddingLeft:'5px', paddingRight:'5px' }}>
+                            <p>{formateTime(currentTime)}</p>
+                            <p>{currentSong?.duration}</p>
+                        </div>
                     </div>
-                    <input value={playPersent} style={{width:"100%"}}  type="range" id="vol" step="1" name="vol" min="0" max="100" />
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <input value={playPersent} style={{width:"90%"}}  type="range" id="vol" step="1" name="vol" min="0" max="100" />
+                    </div>
                 </div>
             </div>
             <div style={{display:'flex', alignItems:'center',justifyContent:'center',  marginTop:'20px', width:'100%'}}>
-                <div style={{display:'flex',alignItems:'center', justifyContent:'space-between', width:'450px'}}>
+                <div style={{display:'flex',alignItems:'center', justifyContent:'space-between', width:'90%'}}>
                     <div>
                         <LuShuffle onClick={handleShuffle} style={{fontSize:'20px', padding:'2px', cursor:'pointer', color: shuffle?'blue':'black'}}  />
                     </div>

@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         height: '200px'
     };
     return (
-        <div style={modalStyle}>
+        <div className='model' style={modalStyle}>
         <span
             style={{
             fontSize:'40px',  
