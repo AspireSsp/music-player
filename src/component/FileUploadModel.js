@@ -76,7 +76,7 @@ const FileUploadModel = () => {
         closeModal();
     };
       
-    return (
+    return ( 
         <div>
             <button onClick={openModal} style={{padding:'0.7rem',border:'0px',background:'#1c8adb',color:'white', borderRadius:'5px', fontFamily:'sans-serif', cursor:'pointer', fontWeight:'700', fontSize:'1rem'}}>Upload</button>
 
