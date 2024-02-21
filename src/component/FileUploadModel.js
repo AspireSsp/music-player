@@ -66,7 +66,7 @@ const FileUploadModel = () => {
         const mySong = {
             id: Date.now(),  
             name: audioFile.name,
-            artist: "aknown",
+            artist: "unknown",
             file: audioFile,
             duration: formattedDuration,
             isPlay: false,
@@ -85,7 +85,7 @@ const FileUploadModel = () => {
                 <input placeholder='select file' type='file' onChange={(e)=>{setAudioFile(e.target.files[0])}} />
                 <div style={{marginTop:'50px'}}>
                     <div style={{position:'absolute', right:'10px'}}>
-                        <button onClick={closeModal} style={{padding:'10px',border:'1px solid gray',background:'transparent',color:'black', borderRadius:'5px', fontFamily:'sans-serif', cursor:'pointer', margin:'4px', fontWeight:'700', fontSize:'1rem'}}>Cencle</button>
+                        <button onClick={closeModal} style={{padding:'10px',border:'1px solid gray',background:'transparent',color:'black', borderRadius:'5px', fontFamily:'sans-serif', cursor:'pointer', margin:'4px', fontWeight:'700', fontSize:'1rem'}}>Cancel</button>
                         <button onClick={handleAddSong} style={{padding:'10px',border:'0px',background:'#1c8adb',color:'white', borderRadius:'5px', fontFamily:'sans-serif', cursor:'pointer', margin:'4px', fontWeight:'700', fontSize:'1rem'}}>Add Song</button>
                     </div>
                 </div>
