@@ -7,11 +7,11 @@ import FileProvider from './context/FileProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <FileProvider>
       <App />
     </FileProvider>
-  </React.StrictMode>
+  // </React.StrictMode> *
 );
 
 // If you want to start measuring performance in your app, pass a function

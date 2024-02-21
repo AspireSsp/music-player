@@ -3,15 +3,18 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const FileContext = createContext();
 
 const FileProvider = ({ children }) => {
-  const [currentSong, setCurrentSong] = useState();
-  const [songs, setSongs] = useState(JSON.parse(localStorage.getItem('audioList')) || []);
-  const [topSongs, setTopSongs] = useState([]);
-  const [duration, setduration] = useState();
-  const [playTime, setPlayTime] = useState();
-  const [isPlay, setIsPlay] = useState(false);
-  const objectStoreName = 'audioFiles';  
-  const dbName = "hitbits";
-  const getAllFilesFromIndexedDB = (callback) => {
+    const [currentSong, setCurrentSong] = useState();
+    const [songs, setSongs] = useState(JSON.parse(localStorage.getItem('audioList')) || []);
+    const [topSongs, setTopSongs] = useState([]);
+    const [duration, setduration] = useState();
+    const [playTime, setPlayTime] = useState();
+    const [isPlay, setIsPlay] = useState(false);
+    const [playingAudio, setPlayingAudio] = useState();
+    const [volume, setVolume] = useState(0.5);
+
+    const objectStoreName = 'audioFiles';  
+    const dbName = "hitbits";
+    const getAllFilesFromIndexedDB = (callback) => {
     const request = indexedDB.open(dbName, 1);
   
     request.onsuccess = (event) => {
@@ -45,9 +48,13 @@ const FileProvider = ({ children }) => {
   
 useEffect(() => {
     getAllFilesFromIndexedDB((files) => {
-        console.log('All files from IndexedDB:', files);
         setSongs(files);
-        setCurrentSong(files[0]);
+        if(files.length){
+            setCurrentSong(files[0]);
+            const audio = new Audio();
+            audio.src = URL.createObjectURL(files[0].file);
+            setPlayingAudio(audio);
+        }
     });
   }, []);
 
@@ -60,12 +67,12 @@ useEffect(() => {
         setSongs,
         topSongs,
         setTopSongs,
-        duration,
-        setduration,
-        playTime,
-        setPlayTime,
         isPlay,
-        setIsPlay
+        setIsPlay,
+        playingAudio,
+        setPlayingAudio,
+        volume,
+        setVolume,
       }}
     >
       {children}
