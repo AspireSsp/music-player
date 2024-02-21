@@ -54,7 +54,7 @@ const TrackList = () => {
                         <h4 style={{margin:'0px',fontSize:'1rem'}}>{song?.name.length>28 ? song.name.substring(0, 28)+".." : song?.name}</h4>
                         <p style={{ margin:'0px'}}>{song.artist}</p>
                     </div>
-                    <div style={{display:'flex', alignItems:'center', height:'50px'}}>
+                    <div style={{display:'flex', alignItems:'center', height:'50px', paddingRight:'5px'}}>
                       <p>{song.duration}</p>
                     </div>
                 </div>
